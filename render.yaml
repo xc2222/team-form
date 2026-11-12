@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: team-form
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    # 美国俄勒冈。若打开后 /api/diag 显示 403，把这里改成 frankfurt 或 singapore 重建一次
+    region: oregon
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8000
